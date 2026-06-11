@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">PsySuite</string>
+
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="abort">abort</string>
+
+    <string name="want_to_quit_app">Do you really want to quit the app?</string>
+    <string name="onend_test">Test completed</string>
+    <string name="success">Operation was a success</string>
+    <string name="failure">Operation failed</string>
+    <string name="error">Error</string>
+    <string name="warning">Warning</string>
+
+    <string name="test_completed_success">The Test was completed successfully</string>
+    <string name="test_completed_abort">The Test was aborted</string>
+    <string name="test_partially_completed">A Test block was completed</string>
+
+    <string name="ask_send_results">Do you want to sent test results?</string>
+
+    <string name="ask_send_results_intent">Do you want to retry sending test results with your own email application?</string>
+    <string name="email_account_error">Error with the account used to send results</string>
+    <string name="email_generic_error">Generic Error during results submission: %1$s</string>
+
+    <string name="sending_results">I\'m sending results</string>
+    <string name="results_sent">Test results were sent correctly</string>
+
+    <string name="settings">Settings</string>
+    <string name="manage_results">Manage Results</string>
+    <string name="show_manual">Read the manual</string>
+    <string name="show_manual_error">Manual is not available</string>
+
+    <string name="registration_skipped">Device registration skipped. You can register later from the top-right menu.</string>
+    <string name="device_registered">Device registered as: %1$s</string>
+    <string name="registration_cancelled">You will be asked to register on next startup. You can register later from the menu.</string>
+    <string name="send_results">Send Results</string>
+    <string name="no_internet_connection">Internet connection  is absent</string>
+    <string name="connect_then_send_results">If you want to send results, please first connect to a network, then goes to settings and press send results</string>
+    <string name="device_not_registered">device not registered</string>
+    <string name="register_device_then_send_results">Register the device and then send result by the top-right menu</string>
+    <string name="sample_test">Test device</string>
+    <string name="update_error_message">Si è verificato un errore durante l\\\'aggiornamento:\\n%1$s\n</string>
+    <string name="home">Home</string>
+    <string name="back">Back</string>
+    <string name="dynamic_tests">Dynamic Test Navigation</string>
+
+</resources>

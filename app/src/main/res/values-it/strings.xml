@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">PsySuite</string>
+
+    <string name="yes">si</string>
+    <string name="no">no</string>
+    <string name="abort">interrompi</string>
+
+    <string name="want_to_quit_app">Vuoi uscire dall\'applicazione?</string>
+    <string name="onend_test">Test completato</string>
+    <string name="success">Operazione eseguita con successo</string>
+    <string name="failure">Operazione Fallita</string>
+    <string name="error">Errore</string>
+    <string name="warning">Attenzione</string>
+
+    <string name="test_completed_success">Il Test è stato completato con successo</string>
+    <string name="test_completed_abort">Il Test è stato interrotto </string>
+    <string name="test_partially_completed">Un blocco del Test è stato completato </string>
+
+    <string name="ask_send_results">Vuoi inviare i risultati del test?</string>
+
+    <string name="ask_send_results_intent">Vuoi riprovare ad inviare i risultati del test usando il tuo programma di posta elettronica?</string>
+    <string name="email_account_error">Errore con l\'account usato per inviare i risultati</string>
+    <string name="email_generic_error">Errore generico durante l\'invio dei risultati: %1$s</string>
+
+    <string name="sending_results">Sto inviando i risultati</string>
+    <string name="results_sent">I Risultati del test sono stati inviati correttamente</string>
+
+    <string name="settings">Settings</string>
+    <string name="manage_results">Gestisci Risultati</string>
+    <string name="show_manual">Consulta il manuale</string>
+    <string name="show_manual_error">Il manuale non è disponibile</string>
+
+    <string name="registration_skipped">La registrazione è stata saltata. Ti puoi registrate quando vuoi dal menu in alto a destra</string>
+    <string name="device_registered">Dispositivo registrato come: %1$s</string>
+    <string name="registration_cancelled">Ti verrà richiesto di registrasti al prossimo avvio. Puoi registrarti quando vuoi nel menu in alto a destra.</string>
+    <string name="send_results">Invia i risultati</string>
+    <string name="no_internet_connection">Connessione di rete assente</string>
+    <string name="connect_then_send_results">Se vuoi mandare i risultati, prima connettiti ad una rete e poi premi manda i risultati nel menu in alto a destra</string>
+    <string name="device_not_registered">Dispositivo non registrato</string>
+    <string name="register_device_then_send_results">Registra il dispositivo e poi manda i risultati tramite il menu in alto a destra</string>
+    <string name="sample_test">Testa il dispositivo</string>
+    <string name="update_error_message">Si è verificato un errore durante l\\\'aggiornamento:\\n%1$s\n</string>
+    <string name="home">Home</string>
+    <string name="back">Indietro</string>
+    <string name="dynamic_tests">Navigazione Test Dinamica</string>
+
+</resources>

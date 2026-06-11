@@ -1,0 +1,10 @@
+<resources>
+    <!-- Large tablet (10+ inch) dimensions -->
+    <dimen name="fab_margin">200dp</dimen>
+    
+    <!-- Main menu button dimensions for large tablets -->
+    <dimen name="main_button_width">520dp</dimen>
+    <dimen name="main_button_height">160dp</dimen>
+    <dimen name="main_button_text_size">28sp</dimen>
+    <dimen name="main_button_margin_top">40dp</dimen>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <!-- Phone dimensions -->
+    <dimen name="fab_margin">16dp</dimen>
+    
+    <!-- Main menu button dimensions for phones -->
+    <dimen name="main_button_width">380dp</dimen>
+    <dimen name="main_button_height">120dp</dimen>
+    <dimen name="main_button_text_size">24sp</dimen>
+    <dimen name="main_button_margin_top">24dp</dimen>
+</resources>

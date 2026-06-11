@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_navigation"
+            app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="org.albaspazio.psysuite.view.MainFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_main">
+        <action
+                android:id="@+id/action_mainFragment_to_testFragment"
+                app:destination="@id/testFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_resultsManagerFragment"
+            app:destination="@id/resultsManagerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="org.albaspazio.psysuite.core.ui.fragments.TestFragment"
+        android:label="@string/run_test">
+        <action android:id="@+id/action_testFragment_to_mainFragment" app:destination="@id/mainFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultsManagerFragment"
+        android:name="org.albaspazio.psysuite.core.ui.fragments.ResultsManagerFragment"
+        android:label="@string/send_results">
+        <action
+            android:id="@+id/action_resultsManagerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+</navigation>

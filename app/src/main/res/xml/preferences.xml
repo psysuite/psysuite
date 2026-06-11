@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Device Registration Category -->
+    <PreferenceCategory
+        android:title="Device Registration"
+        android:key="device_category">
+        
+        <Preference
+            android:key="device_status"
+            android:title="Registration Status"
+            android:summary="Not registered"
+            android:selectable="false" />
+            
+
+        <Preference
+            android:key="register_device"
+            android:title="Register Device"
+            android:summary="Open device registration dialog" />
+            
+        <Preference
+            android:key="clear_device_registration"
+            android:title="Clear Registration"
+            android:summary="Remove device identifier"
+            android:visible="false" />
+            
+    </PreferenceCategory>
+
+    <!-- Web Upload Configuration -->
+    <PreferenceCategory
+        android:title="Web Upload Configuration"
+        android:key="web_upload_category">
+        
+<!--        <EditTextPreference-->
+<!--            android:key="web_api_url"-->
+<!--            android:title="Web API URL"-->
+<!--            android:summary="Server URL for uploading results"-->
+<!--            android:dialogTitle="Web API URL"-->
+<!--            android:dialogMessage="Enter the server URL for uploading experiment results"-->
+<!--            android:inputType="textUri"-->
+<!--            android:selectAllOnFocus="true"-->
+<!--            android:singleLine="true" />-->
+            
+<!--        <EditTextPreference-->
+<!--            android:key="web_api_key"-->
+<!--            android:title="API Key"-->
+<!--            android:summary="Authentication key for web uploads"-->
+<!--            android:dialogTitle="API Key"-->
+<!--            android:dialogMessage="Enter the API key for authentication"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:selectAllOnFocus="true"-->
+<!--            android:singleLine="true" />-->
+            
+        <Preference
+            android:key="web_upload_status"
+            android:title="Web Upload Status"
+            android:summary="Not configured"
+            android:selectable="false" />
+            
+    </PreferenceCategory>
+
+<!--    <PreferenceCategory android:title="Email Results">-->
+
+<!--        <SwitchPreferenceCompat-->
+<!--            android:key="email_enabled"-->
+<!--            android:title="Enable Email Sending"-->
+<!--            android:summary="Allow sending results via email"-->
+<!--            android:defaultValue="false" />-->
+
+<!--        <EditTextPreference-->
+<!--            android:defaultValue="@string/main_email"-->
+<!--            android:key="pref_main_email"-->
+<!--            android:selectAllOnFocus="true"-->
+<!--            android:singleLine="true"-->
+<!--            android:title="Main e-mail address"-->
+<!--            android:dependency="email_enabled" />-->
+<!--    </PreferenceCategory>-->
+
+    <PreferenceCategory android:title="Stimuli reciprocal delays">
+
+        <EditTextPreference
+            android:inputType="number"
+            android:key="pref_delay_a1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Audio1"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:inputType="number"
+            android:key="pref_delay_a2"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Audio2"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:inputType="number"
+            android:key="pref_delay_a3"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Audio3"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:inputType="number"
+            android:key="pref_delay_t1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Tactile1"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+        <EditTextPreference
+            android:inputType="number"
+            android:key="pref_delay_t2"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Tactile2"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:inputType="number"
+            android:key="pref_delay_v1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Visual1"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:inputType="number"
+            android:key="pref_delay_v2"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Visual2"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>
+
+
