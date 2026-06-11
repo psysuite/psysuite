@@ -22,20 +22,15 @@ plugins {
 android {
 
     signingConfigs {
-
-        val folder = ".signing"
-        val props = Properties()
-        try {
-            props.load(FileInputStream(rootProject.file("${folder}/password.properties")))
-        } catch (e: java.io.IOException) {
-            println("File con password non esiste. non puoi continuare, $e")
-        }
-
-        create("release") {
-            storeFile       = file("../${folder}/psysuite_keystore.jks")
-            keyAlias        = props.getProperty("keyAlias")
-            storePassword   = props.getProperty("storePassword")
-            keyPassword     = props.getProperty("keyPassword")
+        val signingPropsFile = rootProject.file(".signing/password.properties")
+        if (signingPropsFile.exists()) {
+            val props = Properties().apply { load(FileInputStream(signingPropsFile)) }
+            create("release") {
+                storeFile     = file("../.signing/psysuite_keystore.jks")
+                keyAlias      = props.getProperty("keyAlias")
+                storePassword = props.getProperty("storePassword")
+                keyPassword   = props.getProperty("keyPassword")
+            }
         }
     }
 
@@ -64,7 +59,10 @@ android {
             isMinifyEnabled = false
             isDebuggable = false
             proguardFiles(getDefaultProguardFile(ProGuards.proguardTxt), ProGuards.androidDefault)
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = if (signingConfigs.findByName("release") != null)
+                signingConfigs.getByName("release")
+            else
+                signingConfigs.getByName("debug")
             buildConfigField("String", "API_URL", "\"${getLocalProperty("PSYSUITE_API_URL_RELEASE", "https://your-server.com/api")}\"")
             buildConfigField("String", "API_KEY", "\"${getLocalProperty("PSYSUITE_API_KEY_RELEASE", "release-key-not-configured")}\"")
             
