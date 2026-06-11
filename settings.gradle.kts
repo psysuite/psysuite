@@ -26,7 +26,7 @@ include(":psysuitecore")
 project(":psysuitecore").projectDir = File(settingsDir, "../modules/psysuitecore/psysuitecore")
 
 include(":psysuitetests")
-project(":psysuitetests").projectDir = File(settingsDir, "../modules/psysuitetests/psysuitetests")
+project(":psysuitetests").projectDir = File(settingsDir, "../modules/psysuitetests_demo2/psysuitetests")
 
 include(":core")
 project(":core").projectDir = File(settingsDir, "../modules/core/core")

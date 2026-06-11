@@ -2,8 +2,8 @@ object Configs {
 
     const val applicationId     = "org.albaspazio.psysuite" //  Play Store package name
     const val psysuitenamespace = "org.albaspazio.psysuite" //  Internal code identifier
-    const val versionCode       = 67
-    const val versionName       = "2.0.6.${versionCode}"
+    const val versionCode       = 66
+    const val versionName       = "2.0 DEMO"
 
     // org.albaspazio.psysuite.core & org.albaspazio.core
     const val psysuitecorenamespace     = "org.albaspazio.psysuite.core"

@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
         // Simple splash - just show and move to MainActivity
         Handler().postDelayed({
             go2main()
-        }, 2000L) // 1.5 second splash
+        }, 2000L) // 2 second splash
     }
 
     private fun go2main(){

@@ -160,7 +160,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     
     private fun onAllPermissionsGranted() {
         // Check for updates
-        checkForUpdates()
+//        checkForUpdates()
+        start()
     }
 
 
