@@ -15,7 +15,7 @@ Life Science Computational Lab (LISCOMP)
 IRCCS Azienda Ospedaliera Metropolitana
 Genova, Italy (2024–2026).
 
-Uses both new a library module (psysuitepython) and deeply re-engineered modules (psysuitecore, psysuitetests, nativeaudio) implemented within the
+that uses both a new library module (psysuitepython) and deeply re-engineered modules (psysuitecore, psysuitetests, nativeaudio) derived from old modules implemented when he worked in the
 Unit for Visually Impaired People (U-VIP),
 Fondazione Istituto Italiano di Tecnologia (IIT),
 Genova, Italy (2018–2021).
