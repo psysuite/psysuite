@@ -4,8 +4,10 @@ plugins {
     id(Plugins.kotlinAndroid) version Versions.kotlin apply(false)
     id(Plugins.kotlinParcelize) version Versions.kparcelablePlugin apply(false)
     id(Plugins.chaquopy) version Versions.chaquopy apply(false)
+
 }
 
 tasks.register("clean", Delete::class){
-    delete(rootProject.buildDir)
+    description = "Deletes the build directory"
+    delete(rootProject.layout.buildDirectory)
 }

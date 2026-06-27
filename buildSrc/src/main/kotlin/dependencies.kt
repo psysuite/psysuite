@@ -2,8 +2,8 @@ object Configs {
 
     const val applicationId     = "org.albaspazio.psysuite" //  Play Store package name
     const val psysuitenamespace = "org.albaspazio.psysuite" //  Internal code identifier
-    const val versionCode       = 66
-    const val versionName       = "2.0 DEMO"
+    const val versionCode       = 67
+    const val versionName       = "2.0.6.${versionCode}"
 
     // org.albaspazio.psysuite.core & org.albaspazio.core
     const val psysuitecorenamespace     = "org.albaspazio.psysuite.core"
@@ -64,14 +64,29 @@ object Versions {
     const val gson = "2.10.1"
 //    const val sunmail = "1.6.7"
 
+    // org.albaspazio.psysuitepython
+    const val kotlin_reflect = "1.7.20"
+
+
+
     const val junit = "4.13.2"
     const val testRunner = "1.5.2"
     const val testEspressoCore = "3.6.1"
+    const val testMonitor = "1.7.1"
+
+    const val mockito = "5.2.0"
+    const val mockito_kotlin = "5.1.0"
+    const val json = "20231013"
+    const val robolectric = "4.11.1"
+    const val navTesting = "2.7.7"
+    const val junitKtx = "1.2.1"
+    const val junitExt = "1.1.5"
 }
 
 object Dependencies {
 
     const val permissions       = "io.github.nishkarsh:android-permissions:${Versions.permissions}"
+    const val kotlin_reflect    = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin_reflect}"
 
     object AndroidX {
 
@@ -97,6 +112,9 @@ object Dependencies {
 
         const val testRunner        = "androidx.test:runner:${Versions.testRunner}"
         const val testEspressoCore  = "androidx.test.espresso:espresso-core:${Versions.testEspressoCore}"
+        const val testMonitor       = "androidx.test:monitor:${Versions.testMonitor}"
+        const val junitKtx          = "androidx.test.ext:junit-ktx:${Versions.junitKtx}"
+        const val junitExt          = "androidx.test.ext:junit:${Versions.junitExt}"
     }
 
     object Kotlin {
@@ -123,6 +141,11 @@ object Dependencies {
     }
 
     const val junit         = "junit:junit:${Versions.junit}"
+    const val mockito_core  = "org.mockito:mockito-core:${Versions.mockito}"
+    const val mockito_kotlin = "org.mockito.kotlin:mockito-kotlin:${Versions.mockito_kotlin}"
+    const val json          = "org.json:json:${Versions.json}"
+    const val robolectric   = "org.robolectric:robolectric:${Versions.robolectric}"
+    const val navTesting    = "androidx.navigation:navigation-testing:${Versions.navTesting}"
 }
 
 object ProGuards {
