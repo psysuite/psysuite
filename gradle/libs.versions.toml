@@ -1,0 +1,151 @@
+[versions]
+# Gradle & Plugins
+androidGradlePlugin = "8.2.2"
+kotlinPlugin = "1.9.24"
+chaquopyPlugin = "17.0.0"
+
+javaVersion = "1.8"
+ndkVersion = "28.0.13004108"
+
+# Kotlin
+kotlin = "1.9.24"
+kotlinReflect = "1.7.20"
+coroutines = "1.6.4"
+
+# AndroidX
+ktxCore = "1.13.1"
+appCompat = "1.6.1"
+fragment = "1.4.0"
+lifecycle = "2.6.1"
+navFragment = "2.3.5"
+constraintLayout = "2.1.4"
+material = "1.12.0"
+localbroadcastmanager = "1.1.0"
+preference = "1.2.0"
+recyclerView = "1.2.1"
+legacySupport = "1.0.0"
+
+# Network & Serialization
+okhttp = "4.12.0"
+gson = "2.10.1"
+moshi = "1.12.0"
+
+# Reactive
+rxjava = "2.4.0"
+rxandroid = "2.1.1"
+
+# Other
+permissions = "2.0.54"
+oboe = "1.10.0"
+
+# Python
+chaquopyVersion = "3.10"
+
+# Testing
+junit = "4.13.2"
+mockito = "5.2.0"
+mockitoKotlin = "5.1.0"
+json = "20231013"
+robolectric = "4.11.1"
+navTesting = "2.7.7"
+junitKtx = "1.2.1"
+junitExt = "1.1.5"
+testRunner = "1.5.2"
+testEspressoCore = "3.6.1"
+testMonitor = "1.7.1"
+
+[libraries]
+# Kotlin
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlin-reflect-legacy = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlinReflect" }
+
+# AndroidX - Core
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktxCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompat" }
+androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragment" }
+
+# AndroidX - Lifecycle
+androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-common-java8", version.ref = "lifecycle" }
+
+# AndroidX - Navigation
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navFragment" }
+androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navFragment" }
+androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "navTesting" }
+
+# AndroidX - UI
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintLayout" }
+androidx-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerView" }
+androidx-preference = { group = "androidx.preference", name = "preference-ktx", version.ref = "preference" }
+androidx-localbroadcastmanager = { group = "androidx.localbroadcastmanager", name = "localbroadcastmanager", version.ref = "localbroadcastmanager" }
+androidx-legacy-support = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupport" }
+
+# Network
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+# Serialization
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+
+# Reactive
+rxjava2 = { group = "io.reactivex.rxjava2", name = "rxjava", version.ref = "rxjava" }
+rxandroid = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref = "rxandroid" }
+rxrelay = { group = "com.jakewharton.rxrelay2", name = "rxrelay", version.ref = "rxandroid" }
+rxkotlin = { group = "io.reactivex.rxjava2", name = "rxkotlin", version.ref = "rxjava" }
+
+# Other
+permissions = { group = "io.github.nishkarsh", name = "android-permissions", version.ref = "permissions" }
+oboe = { group = "com.google.oboe", name = "oboe", version.ref = "oboe" }
+
+# Testing - Unit
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
+json = { group = "org.json", name = "json", version.ref = "json" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+
+# Testing - Android Instrumented
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "testRunner" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "testEspressoCore" }
+androidx-test-monitor = { group = "androidx.test", name = "monitor", version.ref = "testMonitor" }
+androidx-test-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
+androidx-test-junit-ext = { group = "androidx.test.ext", name = "junit", version.ref = "junitExt" }
+
+[bundles]
+# Kotlin
+kotlin-core = ["kotlin-stdlib", "kotlin-reflect"]
+kotlin-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
+
+# AndroidX - Lifecycle
+androidx-lifecycle = ["androidx-lifecycle-viewmodel", "androidx-lifecycle-livedata", "androidx-lifecycle-common"]
+
+# AndroidX - Navigation
+androidx-navigation = ["androidx-navigation-fragment", "androidx-navigation-ui"]
+
+# AndroidX - UI Essentials
+androidx-ui-essentials = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "androidx-material"]
+
+# Reactive
+reactive = ["rxandroid", "rxrelay", "rxkotlin"]
+
+# Serialization
+serialization = ["moshi", "moshi-kotlin"]
+
+# Testing - Unit
+testing-unit = ["junit", "mockito-core", "mockito-kotlin", "json", "robolectric"]
+
+# Testing - Android Instrumented
+testing-android = ["androidx-test-runner", "androidx-test-espresso-core", "androidx-test-monitor", "androidx-test-junit-ktx", "androidx-test-junit-ext"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinPlugin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlinPlugin" }
+chaquopy = { id = "com.chaquo.python", version.ref = "chaquopyPlugin" }

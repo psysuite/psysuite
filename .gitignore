@@ -17,9 +17,8 @@ local.properties
 /buildSrc/build/
 /.idea/
 /.signing/
-/gradle/
-/gradle/wrapper/
 
+/gradle/wrapper/
 /nativeaudio/build/
 # Log/OS Files
 *.log
