@@ -23,7 +23,7 @@ include(":psysuitepython")
 project(":psysuitepython").projectDir = File(settingsDir, "../modules/psysuitepython/psysuitepython")
 
 include(":psysuitecore")
-project(":psysuitecore").projectDir = File(settingsDir, "../modules/psysuitecore/psysuitecore")
+project(":psysuitecore").projectDir = File(settingsDir, "../modules/psysuitecore-public/psysuitecore")
 
 include(":psysuitetests")
 project(":psysuitetests").projectDir = File(settingsDir, "../modules/psysuitetests_demo2/psysuitetests")
