@@ -1,5 +1,8 @@
 package org.albaspazio.psysuite.navigation.config
 
+import org.albaspazio.psysuite.core.exceptions.ConfigurationException
+import org.albaspazio.psysuite.core.exceptions.StateException
+
 /**
  * Represents a node in the test navigation configuration tree.
  *
@@ -58,11 +61,11 @@ data class ConfigurationNode(
      * Gets the children of this node if it's a MENU node.
      *
      * @return List of child ConfigurationNode objects
-     * @throws IllegalStateException if this is not a MENU node
+     * @throws StateException if this is not a MENU node
      */
     fun getChildren(): List<ConfigurationNode> {
         if (type != NodeType.MENU) {
-            throw IllegalStateException("Cannot get children of a TEST node")
+            throw StateException("Cannot get children of a TEST node")
         }
         @Suppress("UNCHECKED_CAST")
         return value as List<ConfigurationNode>
@@ -72,11 +75,11 @@ data class ConfigurationNode(
      * Gets the test class name if this is a TEST node.
      *
      * @return Fully qualified class name
-     * @throws IllegalStateException if this is not a TEST node
+     * @throws StateException if this is not a TEST node
      */
     fun getTestClassName(): String {
         if (type != NodeType.TEST) {
-            throw IllegalStateException("Cannot get test class name from a MENU node")
+            throw StateException("Cannot get test class name from a MENU node")
         }
         return value as String
     }
@@ -96,8 +99,3 @@ enum class NodeType {
      */
     TEST
 }
-
-/**
- * Exception thrown when configuration is invalid.
- */
-class ConfigurationException(message: String, cause: Throwable? = null) : Exception(message, cause)

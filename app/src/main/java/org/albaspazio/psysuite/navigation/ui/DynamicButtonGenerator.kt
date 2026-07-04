@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import org.albaspazio.psysuite.navigation.config.ConfigurationNode
 import org.albaspazio.psysuite.navigation.config.NodeType
 import org.albaspazio.psysuite.navigation.resolution.StringResolver
+import org.albaspazio.psysuite.core.exceptions.StringResolutionException
 
 /**
  * Generates dynamic buttons for menu nodes at runtime.
@@ -81,7 +82,7 @@ class DynamicButtonGenerator(
         // Resolve and set label
         val resolvedLabel = try {
             stringResolver.resolve(node.label)
-        } catch (e: Exception) {
+        } catch (e: StringResolutionException) {
             Log.w(TAG, "Failed to resolve label for node: ${node.label}, using raw label", e)
             node.label
         }

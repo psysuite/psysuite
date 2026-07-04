@@ -2,6 +2,7 @@ package org.albaspazio.psysuite.navigation.config
 
 import org.json.JSONArray
 import org.json.JSONObject
+import org.albaspazio.psysuite.core.exceptions.ConfigurationException
 
 /**
  * Parses JSON configuration files into ConfigurationNode trees.

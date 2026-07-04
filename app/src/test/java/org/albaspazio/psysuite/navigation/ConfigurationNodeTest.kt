@@ -1,6 +1,7 @@
 package org.albaspazio.psysuite.navigation
 
-import org.albaspazio.psysuite.navigation.config.ConfigurationException
+import org.albaspazio.psysuite.core.exceptions.ConfigurationException
+import org.albaspazio.psysuite.core.exceptions.StateException
 import org.albaspazio.psysuite.navigation.config.ConfigurationNode
 import org.albaspazio.psysuite.navigation.config.NodeType
 import org.junit.Test
@@ -49,8 +50,8 @@ class ConfigurationNodeTest {
         
         try {
             node.getChildren()
-            fail("Should throw IllegalStateException")
-        } catch (e: IllegalStateException) {
+            fail("Should throw StateException")
+        } catch (e: StateException) {
             assertNotNull(e.message)
         }
     }
@@ -70,8 +71,8 @@ class ConfigurationNodeTest {
         
         try {
             node.getTestClassName()
-            fail("Should throw IllegalStateException")
-        } catch (e: IllegalStateException) {
+            fail("Should throw StateException")
+        } catch (e: StateException) {
             assertNotNull(e.message)
         }
     }

@@ -2,6 +2,7 @@ package org.albaspazio.psysuite.navigation.resolution
 
 import android.content.Context
 import android.util.Log
+import org.albaspazio.psysuite.core.exceptions.StringResolutionException
 
 /**
  * Resolves string labels from configuration, supporting both @string/ references and direct text.
@@ -88,8 +89,3 @@ class StringResolver(private val context: Context) {
         }
     }
 }
-
-/**
- * Exception thrown when string resolution fails.
- */
-class StringResolutionException(message: String, cause: Throwable? = null) : Exception(message, cause)

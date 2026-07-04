@@ -1,6 +1,6 @@
 package org.albaspazio.psysuite.navigation
 
-import org.albaspazio.psysuite.navigation.config.ConfigurationException
+import org.albaspazio.psysuite.core.exceptions.ConfigurationException
 import org.albaspazio.psysuite.navigation.config.ConfigurationParser
 import org.albaspazio.psysuite.navigation.config.NodeType
 import org.junit.Test

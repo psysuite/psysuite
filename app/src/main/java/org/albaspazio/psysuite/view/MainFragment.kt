@@ -22,6 +22,9 @@ import org.albaspazio.psysuite.tests.SettingsBasic
 import org.albaspazio.psysuite.tests.TestBasic
 import org.albaspazio.psysuite.core.ui.dialogs.SubjectBasicDialogFragment.Companion.PROJECTS_PARCEL
 import org.albaspazio.psysuite.core.ui.dialogs.SubjectBasicDialogFragment.Companion.SUBJECT_PARCEL
+import org.albaspazio.psysuite.core.exceptions.ConfigurationException
+import org.albaspazio.psysuite.core.exceptions.StringResolutionException
+import org.albaspazio.psysuite.core.exceptions.TestInstantiationException
 import androidx.navigation.findNavController
 
 
@@ -145,6 +148,9 @@ class MainFragment : TestLaunchFragment(
 
             // Setup UI
             displayCurrentMenu()
+        } catch (e: ConfigurationException) {
+            Log.e(LOG_TAG, "Failed to parse configuration", e)
+            showError("Configuration Error: ${e.message}")
         } catch (e: Exception) {
             Log.e(LOG_TAG, "Failed to initialize dynamic menu", e)
             e.printStackTrace()
@@ -187,13 +193,16 @@ class MainFragment : TestLaunchFragment(
                         val testInstance = TestParcelInstantiator.instantiate(node.getTestClassName())
                         Log.d(LOG_TAG, "Test instantiated: ${node.label}")
                         showSubjectDialog(testInstance)
-                    } catch (e: Exception) {
+                    } catch (e: TestInstantiationException) {
                         Log.e(LOG_TAG, "Failed to instantiate test", e)
                         showError("Test Error: ${e.message}")
                     }
                 }
             )
             Log.d(LOG_TAG, "Successfully displayed ${children.size} buttons")
+        } catch (e: StringResolutionException) {
+            Log.e(LOG_TAG, "Failed to resolve menu label", e)
+            showError("Label Error: ${e.message}")
         } catch (e: Exception) {
             Log.e(LOG_TAG, "Failed to display menu", e)
             e.printStackTrace()

@@ -1,6 +1,7 @@
 package org.albaspazio.psysuite.navigation.resolution
 
 import android.util.Log
+import org.albaspazio.psysuite.core.exceptions.TestInstantiationException
 import org.albaspazio.psysuite.tests.SettingsBasic
 
 /**
@@ -76,8 +77,3 @@ object TestParcelInstantiator {
         }
     }
 }
-
-/**
- * Exception thrown when test instantiation fails.
- */
-class TestInstantiationException(message: String, cause: Throwable? = null) : Exception(message, cause)
