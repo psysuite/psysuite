@@ -47,6 +47,7 @@ import org.albaspazio.core.ui.show2ChoisesDialog
 import org.albaspazio.core.ui.showAlert
 import org.albaspazio.core.DeviceUtils
 import android.content.pm.ActivityInfo
+import org.albaspazio.psysuite.view.TestLaunchFragment
 
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener{
@@ -344,11 +345,11 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             // Create subject parcel and show dialog using MainFragment's method
             val subjectParcel = SettingsSample()
             val dialogFragment = SubjectSampleDialogFragment()
-            
-            MainFragment.showDialog(
+
+            TestLaunchFragment.showDialog(
                 subjectParcel,
                 dialogFragment,
-                MainFragment.TARGET_FRAGMENT_SUBJECT_REQUEST_CODE,
+                TestLaunchFragment.TARGET_FRAGMENT_SUBJECT_REQUEST_CODE,
                 tempFragment,
                 supportFragmentManager
             )
@@ -603,7 +604,7 @@ class SampleTestDialogFragment : androidx.fragment.app.Fragment() {
 
         // Set up the result listener
         parentFragmentManager.setFragmentResultListener(
-            MainFragment.TARGET_FRAGMENT_SUBJECT_REQUEST_CODE.toString(),
+            TestLaunchFragment.TARGET_FRAGMENT_SUBJECT_REQUEST_CODE.toString(),
             this
         ) { _, result ->
             val activity = requireActivity() as MainActivity
@@ -611,8 +612,8 @@ class SampleTestDialogFragment : androidx.fragment.app.Fragment() {
 
             val subj = result.getParcelable<SettingsBasic>(SubjectBasicDialogFragment.SUBJECT_PARCEL)
             if (subj != null) {
-                // Use MainFragment's static method to start the test
-                MainFragment.startTest(subj, requireActivity().findViewById(R.id.my_nav_host_fragment), R.id.action_mainFragment_to_testFragment)
+                // Use TestLaunchFragment's static method to start the test
+                TestLaunchFragment.startTest(subj, requireActivity(), requireActivity().findViewById(R.id.my_nav_host_fragment), R.id.action_mainFragment_to_testFragment)
             }
             // Remove this temporary fragment
             parentFragmentManager.beginTransaction().remove(this).commit()

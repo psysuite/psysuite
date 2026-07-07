@@ -7,25 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import org.albaspazio.psysuite.MainApplication
 import org.albaspazio.psysuite.R
-import org.albaspazio.psysuite.core.managers.ProjectManager
-import org.albaspazio.psysuite.navigation.config.ConfigurationParser
-import org.albaspazio.psysuite.navigation.manager.TestsNavigationManager
-import org.albaspazio.psysuite.navigation.resolution.StringResolver
-import org.albaspazio.psysuite.navigation.ui.DynamicButtonGenerator
-import org.albaspazio.psysuite.navigation.resolution.TestParcelInstantiator
-import org.albaspazio.psysuite.tests.SettingsBasic
-import org.albaspazio.psysuite.tests.TestBasic
-import org.albaspazio.psysuite.core.ui.dialogs.SubjectBasicDialogFragment.Companion.PROJECTS_PARCEL
-import org.albaspazio.psysuite.core.ui.dialogs.SubjectBasicDialogFragment.Companion.SUBJECT_PARCEL
 import org.albaspazio.psysuite.core.exceptions.ConfigurationException
 import org.albaspazio.psysuite.core.exceptions.StringResolutionException
 import org.albaspazio.psysuite.core.exceptions.TestInstantiationException
-import androidx.navigation.findNavController
+import org.albaspazio.psysuite.navigation.config.ConfigurationParser
+import org.albaspazio.psysuite.navigation.manager.TestsNavigationManager
+import org.albaspazio.psysuite.navigation.resolution.StringResolver
+import org.albaspazio.psysuite.navigation.resolution.TestParcelInstantiator
+import org.albaspazio.psysuite.navigation.ui.DynamicButtonGenerator
 
 
 class MainFragment : TestLaunchFragment(
@@ -42,42 +32,6 @@ class MainFragment : TestLaunchFragment(
     private lateinit var buttonContainer: LinearLayout
     private lateinit var menuTitleView: TextView
 
-    companion object {
-        @JvmStatic val isDebug: Boolean = false
-        @JvmStatic val TARGET_FRAGMENT_SUBJECT_REQUEST_CODE: Int = 1
-
-        fun showDialog(subj: SettingsBasic, df: DialogFragment, rc: Int, frg: Fragment, pfm: FragmentManager) {
-            subj.isDebug = isDebug
-            if (isDebug) {
-                subj.label = "a"
-                subj.age = 1
-                subj.gender = 0
-            }
-
-            val bundle = Bundle()
-            bundle.putParcelable(SUBJECT_PARCEL, subj)
-
-            // Get available projects and pass them to the dialog
-            val projectManager = ProjectManager.getInstance(frg.requireContext())
-            val availableProjects = projectManager.getAllProjects()
-            bundle.putStringArrayList(PROJECTS_PARCEL, ArrayList(availableProjects))
-
-            df.arguments = bundle
-            df.setTargetFragment(frg, rc)
-            df.isCancelable = false
-            df.show(pfm, "Modifica Soggetto")
-        }
-
-        fun startTest(subj: SettingsBasic, v: View, nav_action: Int = R.id.action_mainFragment_to_testFragment) {
-            subj.stimuliDelays = MainApplication.delaysAligner
-
-            val bundle = Bundle()
-            bundle.putParcelable(TestBasic.TESTINFO_BUNDLE_LABEL, subj)
-            v.findNavController().navigate(nav_action, bundle)
-        }
-    }
-
-    override fun getTestFragmentNavigationAction(): Int = R.id.action_mainFragment_to_testFragment
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_main, container, false)
@@ -192,7 +146,10 @@ class MainFragment : TestLaunchFragment(
                     try {
                         val testInstance = TestParcelInstantiator.instantiate(node.getTestClassName())
                         Log.d(LOG_TAG, "Test instantiated: ${node.label}")
-                        showSubjectDialog(testInstance)
+
+                        if(isDebug) launchDebugTest()
+                        else        showSubjectDialog(testInstance)
+
                     } catch (e: TestInstantiationException) {
                         Log.e(LOG_TAG, "Failed to instantiate test", e)
                         showError("Test Error: ${e.message}")
