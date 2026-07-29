@@ -4,7 +4,7 @@ package org.albaspazio.psysuite
 import android.app.Application
 import android.os.Build
 import android.util.Log
-import org.albaspazio.psysuite.core.R
+import org.albaspazio.core.screen.DisplayRefreshRateManager
 import org.albaspazio.psysuite.core.models.preferences.ProjectPreferencesManager
 import org.albaspazio.psysuite.core.models.preferences.ProjectPreferences
 import org.albaspazio.psysuite.core.stimuli.DelaysAligner
@@ -26,9 +26,10 @@ class MainApplication : Application(){
 
     // define the list of validated devices and their delays
     private var devicesDelays:HashMap<String, DelaysAligner> = hashMapOf(
-        "Mi A2 Lite"  to DelaysAligner(4L,  40L, 4L, 0L, 5L, 0L, 30L, 53L),
-        "SM-A405FN"   to DelaysAligner(0L, 165L, 4L, 0L,28L, 0L, 20L,  0L),
-        "UNKNOWN"     to DelaysAligner(0L,   0L, 0L, 0L, 0L, 0L, 0L,   0L),
+        "Mi A2 Lite"  to DelaysAligner(4L,  40L, 4L, 0L,  5L, 0L, 30L, 53L, 10L, 23L),
+        "SM-A405FN"   to DelaysAligner(0L, 165L, 4L, 0L, 28L, 0L, 20L,  0L,  5L,  0L),
+        "SM-S901U1"   to DelaysAligner(0L,  50L, 4L, 0L, 28L, 0L, 20L,  0L,  5L,  0L),
+        "UNKNOWN"     to DelaysAligner(0L,   0L, 0L, 0L,  0L, 0L, 0L,   0L,  0L,  0L),
     )
 
     // set the default device's delays accessing current device model or setting a default model
@@ -43,10 +44,14 @@ class MainApplication : Application(){
 
         // create preference file (if not exist), init preferences
         ProjectPreferencesManager.init(applicationContext, ProjectPreferences(defaultDelays), overwrite = true)
+
+        // Initialize display refresh rate manager for visual timing conversions
+        DisplayRefreshRateManager.init(applicationContext)
+
+        // init python here that we have a context. in Test Classes we get the instance created here
+        SPython.getInstance(applicationContext)
+
         delaysAligner = ProjectPreferencesManager.preferences.delaysAligner
-
-        SPython.getInstance(applicationContext)   // init python here that we have a context. in Test Classes we get the instance created here
-
         Log.d("MainApplication", "OnCreate: SYSTEM DELAYS=> $delaysAligner")
     }
 }

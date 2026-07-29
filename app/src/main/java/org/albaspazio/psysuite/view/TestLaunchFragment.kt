@@ -35,7 +35,36 @@ abstract class TestLaunchFragment(
     hideAndroidControls: Boolean = false
 ) : BaseFragment(layout, landscape, hideAndroidControls) {
 
-    protected val isDebug: Boolean = true
+    protected val isDebug: Boolean = false
+
+
+    /**
+     * allows to launch a debug test from whichever button you press on the UI (allows skipping subjectDialog)
+     */
+    protected fun launchDebugTest(){
+
+        // EDIT HERE TO SELECT TEST PARAMS TO LAUNCH
+        val className   = "org.albaspazio.psysuite.tests.bis.SettingsBIS"
+        val test_type   = TestBasic.TEST_BISECTION_AUDIO_VISUAL
+        val trg_man     = TestBasic.TEST_TRMAN_FIXED
+        val testDebug   = false     // this.isDebug is used to call this method, this testDebug to set whether running a regular task (false) or a debug task (true)
+        val training    = TestBasic.TEST_SWITCH_DISABLED
+        // ----------------------------------------------------------------
+
+        val subj        = TestParcelInstantiator.instantiate(className)
+        subj.type       = test_type
+        subj.label      = "debug_test"
+        subj.age        = 1
+        subj.gender     = 0
+        subj.doTraining = training
+        subj.trman_type = trg_man
+        subj.isDebug    = testDebug
+
+        writeExperimentJson(subj)
+
+        // Navigate to TestFragment with the specific action for this fragment
+        startTest(subj, requireActivity(), requireView(), testFragmentNavigationAction)
+    }
 
     protected lateinit var subject: SettingsBasic
     protected var isSubjectDFopening: Boolean = false
@@ -161,27 +190,4 @@ abstract class TestLaunchFragment(
         return subject
     }
 
-    /**
-     * allows to launch a debug test from whichever button you press on the UI (allows skipping subjectDialog)
-     */
-    protected fun launchDebugTest(){
-
-        // EDIT HERE TO SELECT WHICH TEST LAUNCH
-        val className   = "org.albaspazio.psysuite.tests.bis.SettingsBIS"
-        val test_type   = TestBasic.TEST_BISECTION_VISUAL
-        val testDebug   = false     // this.isDebug is used to call this method, this testDebug to set whether running a regular task (false) or a debug task (true)
-
-        // ----------------------------------------------------------------
-        val subj        = TestParcelInstantiator.instantiate(className)
-        subj.type       = test_type
-        subj.label      = "debug_test"
-        subj.age        = 1
-        subj.gender     = 0
-        subj.isDebug    = testDebug
-
-        writeExperimentJson(subj)
-
-        // Navigate to TestFragment with the specific action for this fragment
-        startTest(subj, requireActivity(), requireView(), testFragmentNavigationAction)
-    }
 }
